@@ -89,7 +89,6 @@ def login():
 @login_required
 def secrets():
     user_name = current_user.name
-    print(user_name)
     return render_template("secrets.html",user_name=user_name)
 
 
