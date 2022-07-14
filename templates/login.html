@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="box">
+    <h1>Login</h1>
+    {% if error %}
+        {%if error =='Invalid password'%}
+        <p class=error><strong>Error:</strong> {{ error }}. <br> <a href="#">Forgot password?</a></p>
+
+        {%else%}
+        <p class=error><strong>Error:</strong> {{ error }}</p>
+        {% endif %}
+    {% endif %}
+    <form action="{{ url_for('login') }}" method="post">
+        <input type="text" name="email" placeholder="Email" required="required"/>
+        <input type="password" name="password" placeholder="Password" required="required"/>
+        <button type="submit" class="btn btn-primary btn-block btn-large">Let me in.</button>
+    </form>
+</div>
+
+{% endblock %}
